@@ -3,12 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website with Buttons</title>
+    <title>Website with Tabs</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .tab:hover {
+            background-color: #0056b3;
+        }
+        .tab-content {
+            display: none;
             text-align: center;
-            margin: 50px;
+        }
+        .tab-content.active {
+            display: block;
         }
         .button {
             display: inline-block;
@@ -16,29 +40,55 @@
             padding: 15px 30px;
             font-size: 16px;
             color: white;
-            background-color: #007BFF;
+            background-color: #28a745;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
         }
         .button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
+    <script>
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>Click the buttons below to navigate to different pages:</p>
-
-    <div>
-        <!-- Generate 50 buttons dynamically -->
-        <script>
-            for (let i = 1; i <= 50; i++) {
-                document.write(`<a href="page${i}.html" class="button">Go to Page ${i}</a>`);
-            }
-        </script>
+    <h1>Website with Tabs</h1>
+    <div class="tabs">
+        <button class="tab" onclick="showTab('tab1')">Tab 1</button>
+        <button class="tab" onclick="showTab('tab2')">Tab 2</button>
+        <button class="tab" onclick="showTab('tab3')">Tab 3</button>
+        <button class="tab" onclick="showTab('tab4')">Tab 4</button>
     </div>
 
+    <div id="tab1" class="tab-content active">
+        <h2>Tab 1 Content</h2>
+        <a href="page1.html" class="button">Page 1</a>
+        <a href="page2.html" class="button">Page 2</a>
+    </div>
+
+    <div id="tab2" class="tab-content">
+        <h2>Tab 2 Content</h2>
+        <a href="page3.html" class="button">Page 3</a>
+        <a href="page4.html" class="button">Page 4</a>
+    </div>
+
+    <div id="tab3" class="tab-content">
+        <h2>Tab 3 Content</h2>
+        <a href="page5.html" class="button">Page 5</a>
+        <a href="page6.html" class="button">Page 6</a>
+    </div>
+
+    <div id="tab4" class="tab-content">
+        <h2>Tab 4 Content</h2>
+        <a href="page7.html" class="button">Page 7</a>
+        <a href="page8.html" class="button">Page 8</a>
+    </div>
 </body>
 </html>
