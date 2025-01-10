@@ -31,9 +31,14 @@
     <h1>Welcome to My Website</h1>
     <p>Click the buttons below to navigate to different pages:</p>
 
-    <a href="page1.html" class="button">Go to Page 1</a>
-    <a href="page2.html" class="button">Go to Page 2</a>
-    <a href="page3.html" class="button">Go to Page 3</a>
+    <div>
+        <!-- Generate 50 buttons dynamically -->
+        <script>
+            for (let i = 1; i <= 50; i++) {
+                document.write(`<a href="page${i}.html" class="button">Go to Page ${i}</a>`);
+            }
+        </script>
+    </div>
 
 </body>
 </html>
